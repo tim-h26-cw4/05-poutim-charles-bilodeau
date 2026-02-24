@@ -5,23 +5,34 @@ export default class Chef {
     console.log('#1 - new Chef');
     this.element = element;
     this.menu = [];
-    this.container = document.querySelectorAll('js-button-secondary');
+    this.container = document.querySelectorAll('.js-button-secondary');
 
     this.init();
   }
 
   init() {
-    const poutines = document.querySelectorAll('js-poutine');
+    const poutines = document.querySelectorAll('.js-poutine');
 
     for (let i = 0; i < poutines.length; i++) {
       const poutine = poutines[i];
-      const instance = new Poutine(perso);
-      this.poutine.push(instance);
+      const instance = new Poutine(poutine);
+      this.menu.push(instance);
     }
 
-    const btnCommande = this.element.querySelectorAll('.js-button-secondary');
-    //btnCommande.addEventListener('click', this.sendOrder.bind(this));
+    const btnCommande = this.element.querySelector('.js-button-secondary');
+    btnCommande.addEventListener('click', this.sendOrder.bind(this));
   }
 
-  sendOrder() {}
+  sendOrder() {
+    this.container.innerHTML = '';
+
+    let totalPoutine = 0;
+
+    for (let i = 0; i < this.menu.length; i++) {
+      const poutine = this.menu[i];
+    }
+    const p = document.createElement('p');
+    p.innerText = `Nombre de poutine(s) : ${total}`;
+    this.container.appendChild(p);
+  }
 }
