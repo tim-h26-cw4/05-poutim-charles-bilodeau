@@ -30,9 +30,12 @@ export default class Chef {
 
     for (let i = 0; i < this.menu.length; i++) {
       const poutine = this.menu[i];
+      if (poutine.selectedType !== '') {
+        total++;
+      }
     }
     const p = document.createElement('p');
-    p.innerText = `Nombre de poutine(s) : ${total}`;
+    p.innerText = `Nombre de poutine(s) : ${totalPoutine}`;
     this.container.appendChild(p);
   }
 }
