@@ -5,13 +5,13 @@ export default class Chef {
     console.log('#1 - new Chef');
     this.element = element;
     this.menu = [];
-    this.container = document.querySelectorAll('.js-button-secondary');
+    this.container = this.element.querySelector('.chef__order');
 
     this.init();
   }
 
   init() {
-    const poutines = document.querySelectorAll('.js-poutine');
+    const poutines = this.element.querySelectorAll('.js-poutine');
 
     for (let i = 0; i < poutines.length; i++) {
       const poutine = poutines[i];
@@ -30,12 +30,15 @@ export default class Chef {
 
     for (let i = 0; i < this.menu.length; i++) {
       const poutine = this.menu[i];
+
       if (poutine.selectedType !== '') {
-        total++;
+        totalPoutine++;
       }
     }
+
     const p = document.createElement('p');
-    p.innerText = `Nombre de poutine(s) : ${totalPoutine}`;
+    p.innerText = `Nombre total de poutine(s) : ${totalPoutine}`;
+
     this.container.appendChild(p);
   }
 }
