@@ -2,7 +2,6 @@ import Poutine from './Poutine.js';
 
 export default class Chef {
   constructor(element) {
-    console.log('#1 - new Chef');
     this.element = element;
     this.menu = [];
     this.container = this.element.querySelector('.chef__order');
@@ -31,7 +30,7 @@ export default class Chef {
     for (let i = 0; i < this.menu.length; i++) {
       const poutine = this.menu[i];
 
-      if (poutine.selectedType !== '') {
+      if (poutine.isActive) {
         totalPoutine++;
       }
     }
